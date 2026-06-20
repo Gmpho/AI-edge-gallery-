@@ -38,10 +38,10 @@ jobs:
         run: ./gradlew assembleRelease
 
       - name: Rename APK
-        run: cp app/build/outputs/apk/release/app-release.apk ../../../striketips.apk
+        run: cp app/build/outputs/apk/release/app-release.apk ${{ github.workspace }}/striketips.apk
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: striketips-apk
-          path: striketips.apk
+          path: ${{ github.workspace }}/striketips.apk

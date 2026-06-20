@@ -1,1 +1,7 @@
 .DS_Store
+
+# opencode AI tool artifacts
+.agents/
+skills/
+skills-lock.json
+striketips-mcp/

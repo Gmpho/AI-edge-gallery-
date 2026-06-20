@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strike Tips — AI Horse Racing Intelligence</title>
+  <meta name="description" content="AI-powered horse racing analysis running 100% on your phone. Calculate edges, stake sizes, track form, and paper trade — all offline.">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏇</text></svg>">
+</head>
+<body>
+
+<!-- ─── Hero ─── -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-badge">Powered by Google AI Edge Gallery</div>
+    <h1>Strike <span>Tips</span></h1>
+    <p>AI racing intelligence that runs on your phone — no data, no server, no subscription required.</p>
+    <div class="hero-actions">
+      <a href="#download" class="btn btn-primary">⬇ Download APK</a>
+      <a href="#skills" class="btn btn-outline">View Skills</a>
+    </div>
+  </div>
+</header>
+
+<!-- ─── Features ─── -->
+<section class="features" id="features">
+  <div class="container">
+    <h2 class="section-title">What You Get</h2>
+    <p class="section-subtitle">All the AI Edge Gallery features you love, plus racing intelligence built in.</p>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🧮</div>
+        <h3>Edge Calculator</h3>
+        <p>Calculate probability edge from decimal odds and your own estimates.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💰</div>
+        <h3>Kelly Staking</h3>
+        <p>Optimal stake sizes using Half-Kelly, capped at 5% of your bankroll.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Paper Trader</h3>
+        <p>Track virtual bets, bankroll, and P&L with optional live odds.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏇</div>
+        <h3>Form Analyzer</h3>
+        <p>Rate horse form from recent runs, distances, and win rates.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🧠</div>
+        <h3>AI Chat</h3>
+        <p>Full on-device LLM chat with Gemma 4 — private, offline, fast.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🖼️</div>
+        <h3>Ask Image</h3>
+        <p>Analyze photos with multimodal AI — identify horses, tracks, and more.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── How It Works ─── -->
+<section class="steps" id="how">
+  <div class="container">
+    <h2 class="section-title">Get Started in 3 Minutes</h2>
+    <p class="section-subtitle">No account, no credit card, no data sharing.</p>
+    <div class="step-list">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Download the APK</h3>
+        <p>Tap the download button below. Allow install from unknown sources when prompted.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Open & Download a Model</h3>
+        <p>Open Strike Tips, go to Model Manager, download any model (Gemma 2B is ~2GB).</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Start Using Racing Skills</h3>
+        <p>Open Agent Skills, select a racing skill, and start calculating edges and stakes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Skills ─── -->
+<section id="skills">
+  <div class="container">
+    <h2 class="section-title">Racing Skills</h2>
+    <p class="section-subtitle">Load these into the Agent Skills tile in Strike Tips. Copy the URL and paste it into "Add Skill from URL".</p>
+    <div class="skill-grid">
+
+      <div class="skill-card">
+        <h3>Calculate Probability Edge</h3>
+        <p>Calculate your betting edge from decimal odds and estimated probability.</p>
+        <div class="skill-url">https://edge-gallery-racing-skills.pages.dev/calculate-probability-edge/scripts/index.html</div>
+        <button class="copy-btn" onclick="copyUrl(this)">Copy URL</button>
+      </div>
+
+      <div class="skill-card">
+        <h3>Kelly Staking</h3>
+        <p>Calculate max stake using Half-Kelly, capped at 5% of bankroll.</p>
+        <div class="skill-url">https://edge-gallery-racing-skills.pages.dev/kelly-staking/scripts/index.html</div>
+        <button class="copy-btn" onclick="copyUrl(this)">Copy URL</button>
+      </div>
+
+      <div class="skill-card">
+        <h3>Paper Trader</h3>
+        <p>Track virtual bets, bankroll, and P&L with localStorage persistence.</p>
+        <div class="skill-url">https://edge-gallery-racing-skills.pages.dev/paper-trader/scripts/index.html</div>
+        <button class="copy-btn" onclick="copyUrl(this)">Copy URL</button>
+      </div>
+
+      <div class="skill-card">
+        <h3>Form Analyzer</h3>
+        <p>Rate horse form from recent positions, distances, and win rates.</p>
+        <div class="skill-url">https://edge-gallery-racing-skills.pages.dev/form-analyzer/scripts/index.html</div>
+        <button class="copy-btn" onclick="copyUrl(this)">Copy URL</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── MCP Server ─── -->
+<section style="background: var(--gray-100);" id="mcp">
+  <div class="container">
+    <h2 class="section-title">MCP Racing Intelligence</h2>
+    <p class="section-subtitle">Connect your Agent Chat to the Strike Tips MCP server for live analysis.</p>
+    <div class="mcp-box">
+      <h3>🔌 Strike Tips MCP Server</h3>
+      <p>Add this URL in Agent Chat → MCP Servers → Add Server. Paste the URL below and press Enter.</p>
+      <div class="mcp-url">https://striketips-mcp.gmphorg379.workers.dev/mcp</div>
+      <p style="margin-bottom: 16px; font-size: 0.9rem;">The MCP server provides 7 tools:</p>
+      <div class="mcp-tools">
+        <div class="mcp-tool">calculate_probability_edge</div>
+        <div class="mcp-tool">calculate_max_position</div>
+        <div class="mcp-tool">search_past_races</div>
+        <div class="mcp-tool">search_racing_keywords</div>
+        <div class="mcp-tool">verify_race_exists</div>
+        <div class="mcp-tool">evaluate_race</div>
+        <div class="mcp-tool">get_odds_snapshot</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Download ─── -->
+<section id="download" style="padding-bottom: 120px;">
+  <div class="container">
+    <h2 class="section-title">Download Strike Tips</h2>
+    <p class="section-subtitle">The APK is free. No registration, no data collection, no ads.</p>
+    <div class="download-box">
+      <p style="font-size: 1.1rem; margin-bottom: 24px; color: var(--gray-800);">
+        📱 Strike Tips APK (based on Google AI Edge Gallery v1.0.16)
+      </p>
+      <a href="/downloads/striketips.apk" class="btn btn-primary" download>⬇ Download APK</a>
+      <p class="small">⚠️ You'll need to enable "Install from unknown sources" on Android. This is temporary — once installed, updates come from the same download page.</p>
+      <p class="small" style="margin-top: 4px;">📦 APK size: ~15MB. Models (~2-8 GB) download separately inside the app.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Footer ─── -->
+<footer>
+  <div class="container">
+    <p>Strike Tips is based on <a href="https://github.com/google-ai-edge/gallery" target="_blank">Google AI Edge Gallery</a> (Apache 2.0).</p>
+    <p style="margin-top: 4px;">Not affiliated with or endorsed by Google. Horse racing involves financial risk. Bet responsibly.</p>
+    <p style="margin-top: 8px;"><a href="/docs/setup.md">Setup Guide</a></p>
+  </div>
+</footer>
+
+<script>
+function copyUrl(btn) {
+  const url = btn.previousElementSibling.textContent.trim();
+  navigator.clipboard.writeText(url).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = 'Copied!';
+    btn.style.background = 'var(--green-700)';
+    btn.style.color = 'var(--white)';
+    setTimeout(() => {
+      btn.textContent = orig;
+      btn.style.background = '';
+      btn.style.color = '';
+    }, 2000);
+  });
+}
+</script>
+
+</body>
+</html>

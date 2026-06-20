@@ -400,7 +400,7 @@ fun AgentChatScreen(
                         }
                       }
                       var result = await ai_edge_gallery_get_result($safeData, $safeSecret);
-                      AiEdgeGallery.onResultReady(result);
+                      StrikeTips.onResultReady(result);
                   })()
                   """
                     .trimIndent()
@@ -443,7 +443,7 @@ fun AgentChatScreen(
         modifier = Modifier.size(300.dp),
         onWebViewCreated = { webView ->
           webViewRef = webView
-          webView.addJavascriptInterface(chatViewJavascriptInterface, "AiEdgeGallery")
+          webView.addJavascriptInterface(chatViewJavascriptInterface, "StrikeTips")
         },
         customWebViewClient = chatWebViewClient,
         onConsoleMessage = { consoleMessage ->

@@ -71,7 +71,40 @@ constructor(
   /**
    * Loads the persisted MCP servers from the DataStore and initializes their client connections.
    */
+  val STRIKE_TIPS_MCP_URL = "https://striketips-mcp.giftmpho.workers.dev/"
+
+  /** Auto-add the Strike Tips MCP server if not already configured. */
+  private suspend fun autoAddStrikeTipsMcp() {
+    val savedServers = mcpServersDataStore.data.first().mcpServerList
+    if (savedServers.none { it.url == STRIKE_TIPS_MCP_URL }) {
+      try {
+        val (client, mcpTools) = initializeClientAndLoadTools(STRIKE_TIPS_MCP_URL)
+        val serverVersion = client.serverVersion
+        val mcpServerProto =
+          McpServer.newBuilder()
+            .setUrl(STRIKE_TIPS_MCP_URL)
+            .addAllTools(mcpTools)
+            .setEnabled(true)
+            .apply {
+              serverVersion?.name?.let { setName(it) }
+              serverVersion?.version?.let { setVersion(it) }
+              val desc = mcpTools.joinToString(", ") { it.name }
+              if (desc.isNotEmpty()) setDescription("Tools: $desc")
+            }
+            .build()
+        mcpServersDataStore.updateData { currentServers ->
+          McpServers.newBuilder()
+            .addAllMcpServer(currentServers.mcpServerList + mcpServerProto)
+            .build()
+        }
+      } catch (_: Exception) {
+        // Non-blocking: skip if MCP is unreachable
+      }
+    }
+  }
+
   suspend fun loadMcpServers() {
+    autoAddStrikeTipsMcp()
     // 1. Set the loading indicator to signal background restoration is in progress.
     _uiState.update { it.copy(loadingMcpServer = true) }
     withContext(Dispatchers.IO) {
@@ -403,7 +436,7 @@ constructor(
     val client =
       Client(
         clientInfo =
-          Implementation(name = "google-ai-edge-gallery", version = BuildConfig.VERSION_NAME)
+          Implementation(name = "strike-tips", version = BuildConfig.VERSION_NAME)
       )
     // Retrieve authentication details from parameter or DataStore and configure the HTTP transport.
     val resolvedAuth = mcpAuth ?: userDataDataStore.data.first().mcpAuthsMap[url]

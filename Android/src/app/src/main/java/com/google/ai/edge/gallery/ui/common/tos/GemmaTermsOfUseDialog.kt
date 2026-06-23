@@ -46,7 +46,7 @@ import androidx.compose.ui.window.Dialog
 import com.google.ai.edge.gallery.R
 import com.google.ai.edge.gallery.ui.common.buildTrackableUrlAnnotatedString
 
-/** A composable for Gemma Terms of Use dialog, shown once before a Gemma model is downloaded. */
+/** A composable for model terms of use dialog, shown once before a model is downloaded. */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GemmaTermsOfUseDialog(
@@ -72,14 +72,15 @@ fun GemmaTermsOfUseDialog(
         Column(modifier = Modifier.verticalScroll(rememberScrollState()).weight(1f, fill = false)) {
           Text(
             buildAnnotatedString {
-              append("Gemma models on the Google AI Edge Gallery app are governed by the ")
+              append("Models on Strike Tips are governed by their respective licenses. ")
+              append("The Gemma model is governed by the ")
               append(
                 buildTrackableUrlAnnotatedString(
                   url = "https://ai.google.dev/gemma/terms",
                   linkText = "Gemma Terms of Service",
                 )
               )
-              append(". Please review these terms and ensure you agree before continuing.")
+              append(". Please review the terms and ensure you agree before continuing.")
             },
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,

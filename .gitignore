@@ -1,1 +1,5 @@
 .DS_Store
+.agents/
+Dockerfile.local
+striketips-mcp/node_modules/
+deploy-apk.sh

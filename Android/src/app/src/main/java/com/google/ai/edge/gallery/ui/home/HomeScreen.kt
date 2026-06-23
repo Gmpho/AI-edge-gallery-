@@ -625,8 +625,8 @@ private fun AppTitle(enableAnimation: Boolean) {
 
 @Composable
 fun AppTitleGm4(enableAnimation: Boolean) {
-  val text1 = "Google"
-  val text2 = "AI Edge Gallery"
+  val text1 = "Strike"
+  val text2 = "Tips"
   val annotatedText = buildAnnotatedString {
     withStyle(style = SpanStyle(color = MaterialTheme.colorScheme.onSurface)) { append(text1) }
     append(" ")
@@ -669,10 +669,8 @@ private fun IntroText(enableAnimation: Boolean, gm4: Boolean) {
   val introText = buildAnnotatedString {
     val gemma4Url = "https://ai.google.dev/gemma"
     if (gm4) {
-      append("Discover the power of on-device AI models from the ")
+      append("Your AI co-pilot for racing, powered by on-device AI from the ")
       append(buildTrackableUrlAnnotatedString(url = litertUrl, linkText = "LiteRT community"))
-      append(", featuring the all-new ")
-      append(buildTrackableUrlAnnotatedString(url = gemma4Url, linkText = "Gemma 4"))
       append(".")
     } else {
       append("${stringResource(R.string.app_intro)} ")
@@ -724,7 +722,7 @@ private fun TryGm4IntroText(enableAnimation: Boolean) {
       tint = MaterialTheme.colorScheme.primary,
     )
     Text(
-      text = "Try Gemma 4 today",
+      text = "Try Strike Tips AI",
       style =
         MaterialTheme.typography.headlineSmall.copy(
           fontWeight = FontWeight.Medium,
@@ -736,7 +734,7 @@ private fun TryGm4IntroText(enableAnimation: Boolean) {
   }
 
   Text(
-    "Gemma 4 E2B & E4B are here! Try them in AI Chat, Agent Skills, or the use cases below.",
+    "Get racing tips, analyze tracks, and optimize your performance with on-device AI.",
     style = MaterialTheme.typography.bodyMedium,
     modifier =
       Modifier.graphicsLayer {
@@ -866,10 +864,10 @@ private fun TaskList(
     ) {
       val chatToDescription =
         mapOf(
-          BuiltInTaskId.LLM_CHAT to "Chat with the latest Gemma 4 model today",
+          BuiltInTaskId.LLM_CHAT to "Chat with your on-device racing co-pilot",
           // use "\u00a0" to make sure the word before and after it should always be together when
           // wrapping lines.
-          BuiltInTaskId.LLM_AGENT_CHAT to "Have Gemma 4 complete agentic tasks for\u00A0you",
+          BuiltInTaskId.LLM_AGENT_CHAT to "Let AI handle racing research and\u00A0tasks",
         )
       for (task in
         listOf(

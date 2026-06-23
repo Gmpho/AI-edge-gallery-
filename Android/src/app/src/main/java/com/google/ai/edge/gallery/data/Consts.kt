@@ -80,6 +80,6 @@ val SOC =
 
 // URLs for Agent Skills.
 object AgentSkillsURLs {
-  const val REPOSITORY = "https://github.com/google-ai-edge/gallery/tree/main/skills"
-  const val DISCUSSIONS = "https://github.com/google-ai-edge/gallery/discussions/categories/skills"
+  const val REPOSITORY = "https://github.com/giftmpho/strike-tips/tree/main/Android/src/app/src/main/assets/skills"
+  const val DISCUSSIONS = "https://github.com/giftmpho/strike-tips/discussions/categories/skills"
 }

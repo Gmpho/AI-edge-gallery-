@@ -70,7 +70,7 @@ import com.google.ai.edge.gallery.proto.McpAuth
 import java.net.URI
 
 private const val TAG = "AGAddMcpServerDialog"
-private val APPROVED_MCP_HOSTS = listOf("googleapis.com")
+private val APPROVED_MCP_HOSTS = listOf("googleapis.com", "workers.dev")
 
 /** A dialog composable for adding a new MCP server by entering its URL. */
 @OptIn(ExperimentalMaterial3Api::class)

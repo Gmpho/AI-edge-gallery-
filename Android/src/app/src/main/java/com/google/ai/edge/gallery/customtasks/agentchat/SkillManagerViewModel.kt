@@ -64,23 +64,34 @@ private const val SKILL_ALLOWLIST_URL = ""
 val TRYOUT_CHIPS: List<SkillTryOutChip> =
   listOf(
     SkillTryOutChip(
+      icon = Icons.Outlined.SentimentVerySatisfied,
+      label = "Racing Coach",
+      prompt = "Give me 3 tips to improve my lap times at Silverstone.",
+      skillName = "racing-coach",
+    ),
+    SkillTryOutChip(
       icon = Icons.Outlined.Map,
-      label = "Interactive Map",
-      prompt = "Show me Googleplex on interactive map.",
-      skillName = "interactive-map",
+      label = "Track Guide",
+      prompt = "Tell me about the key corners at Spa-Francorchamps and how to approach each one.",
+      skillName = "track-guide",
+    ),
+    SkillTryOutChip(
+      icon = Icons.Outlined.LocalLibrary,
+      label = "Race Engineer",
+      prompt = "What tire strategy should I use for a 20-lap race at Monza?",
+      skillName = "race-engineer",
+    ),
+    SkillTryOutChip(
+      icon = Icons.Outlined.QrCode,
+      label = "Wingman",
+      prompt = "On a tight street circuit, should I use high downforce or low downforce setup?",
+      skillName = "wingman",
     ),
     SkillTryOutChip(
       icon = Icons.Outlined.Notifications,
       label = "Schedule Reminder",
       prompt = "Set a daily reminder at 9am to check my schedule for today.",
       skillName = "schedule-notification",
-    ),
-    SkillTryOutChip(
-      icon = Icons.Outlined.SentimentVerySatisfied,
-      label = "Track my mood",
-      prompt =
-        "Log yesterday's mood as 2 because it was raining quite heavily, and log today's mood as 9 because I had a great time playing pickleball again. Then show me my mood dashboard.",
-      skillName = "mood-tracker",
     ),
     SkillTryOutChip(
       icon = Icons.Outlined.Lightbulb,
@@ -97,7 +108,7 @@ val TRYOUT_CHIPS: List<SkillTryOutChip> =
     SkillTryOutChip(
       icon = Icons.Outlined.QrCode,
       label = "Generate QR code",
-      prompt = "Generate QR code for https://deepmind.google/models/gemma/",
+      prompt = "Generate QR code for https://striketips.app/",
       skillName = "qr-code",
     ),
   )
@@ -1217,7 +1228,10 @@ constructor(
 
   companion object {
     private val DEFAULT_DISABLED_SKILLS =
-      setOf("calculate-hash", "kitchen-adventure", "text-spinner", "send-email")
+      setOf(
+        "calculate-hash", "kitchen-adventure", "text-spinner", "send-email",
+        "interactive-map", "mood-tracker",
+      )
   }
 }
 

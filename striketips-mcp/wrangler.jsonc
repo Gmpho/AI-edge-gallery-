@@ -1,0 +1,24 @@
+{
+  "name": "striketips-mcp",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-06-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    "MCP_SERVER_NAME": "StrikeTips Racing Intelligence",
+    "MCP_SERVER_VERSION": "1.0.0"
+  },
+  "ai": {
+    "binding": "AI"
+  },
+  "durable_objects": {
+    "bindings": [
+      { "name": "MCP_OBJECT", "class_name": "StrikeTipsMcp" }
+    ]
+  },
+  "migrations": [
+    { "tag": "v1", "new_sqlite_classes": ["StrikeTipsMcp"] }
+  ]
+}

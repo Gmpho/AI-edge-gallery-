@@ -29,7 +29,7 @@ plugins {
 }
 
 android {
-  namespace = "com.striketips.gallery"
+  namespace = "com.google.ai.edge.gallery"
   compileSdk = 35
 
   defaultConfig {
@@ -43,7 +43,7 @@ android {
     // Use the scheme of the "Redirect URLs" in HuggingFace app.
     manifestPlaceholders["appAuthRedirectScheme"] =
         "REPLACE_WITH_YOUR_REDIRECT_SCHEME_IN_HUGGINGFACE_APP"
-    manifestPlaceholders["applicationName"] = "com.striketips.gallery.StrikeTipsApplication"
+    manifestPlaceholders["applicationName"] = "com.google.ai.edge.gallery.StrikeTipsApplication"
     manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher"
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"

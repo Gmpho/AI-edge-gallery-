@@ -16,7 +16,7 @@
 -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.striketips.gallery"
+    package="com.google.ai.edge.gallery"
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-sdk
@@ -68,7 +68,7 @@
           Instead, just recompose the view.
          -->
         <activity
-            android:name="com.striketips.gallery.MainActivity"
+            android:name="com.google.ai.edge.gallery.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Gallery.SplashScreen"
             android:screenOrientation="portrait"
@@ -88,7 +88,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="com.striketips.gallery" />
+                <data android:scheme="com.google.ai.edge.gallery" />
             </intent-filter>
         </activity>
 
@@ -142,11 +142,11 @@
         </service>
 
         <receiver
-            android:name="com.striketips.gallery.notifications.NotificationReceiver"
+            android:name="com.google.ai.edge.gallery.notifications.NotificationReceiver"
             android:exported="false" />
 
         <receiver
-            android:name="com.striketips.gallery.notifications.BootReceiver"
+            android:name="com.google.ai.edge.gallery.notifications.BootReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />

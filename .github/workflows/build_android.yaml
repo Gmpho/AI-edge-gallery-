@@ -51,17 +51,19 @@ jobs:
     needs: build
     name: Upload to Release
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - uses: actions/download-artifact@v4
         with:
           name: Strike-Tips-APK
 
-      - name: Upload APK to release
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: app-release.apk
-          asset_name: Strike-Tips-v${{ github.ref_name }}.apk
-          tag: ${{ github.ref }}
-          overwrite: true
+      - name: Upload APK to GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release upload "${{ github.ref_name }}" app-release.apk --clobber \
+            || gh release create "${{ github.ref_name }}" app-release.apk \
+              --title "Strike Tips ${{ github.ref_name }}" \
+              --notes "Auto-built by GitHub Actions"

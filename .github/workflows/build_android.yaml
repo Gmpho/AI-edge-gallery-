@@ -1,29 +1,67 @@
-name: Build Android APK
+name: Build & Release Strike Tips APK
 
 on:
-  workflow_dispatch:
   push:
-    branches: [ "main" ]
-    paths:
-      - 'Android/**'
+    branches: [main]
+    paths: [Android/**]
+    tags: [v*]
   pull_request:
-    branches: [ "main" ]
-    paths:
-      - 'Android/**'
+    branches: [main]
+    paths: [Android/**]
+  workflow_dispatch:
 
 jobs:
-  build_apk:
-    name: Build Android APK
+  build:
+    name: Build APK
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: ./Android/src
+
     steps:
-      - name: Checkout the source code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+
       - uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
-          java-version: '21'
-      - name: Build
-        run: ./gradlew assembleRelease
+          distribution: temurin
+          java-version: 21
+
+      - name: Setup Gradle cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('Android/src/**/*.gradle.kts', 'Android/src/gradle/libs.versions.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Build release APK
+        run: ./gradlew assembleRelease --no-daemon
+
+      - name: Upload APK as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Strike-Tips-APK
+          path: Android/src/app/build/outputs/apk/release/app-release.apk
+          retention-days: 90
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: build
+    name: Upload to Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: Strike-Tips-APK
+
+      - name: Upload APK to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: app-release.apk
+          asset_name: Strike-Tips-v${{ github.ref_name }}.apk
+          tag: ${{ github.ref }}
+          overwrite: true

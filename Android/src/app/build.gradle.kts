@@ -39,10 +39,6 @@ android {
     versionCode = 1
     versionName = "2.0.0"
 
-    ndk {
-      abiFilters += listOf("arm64-v8a")
-    }
-
     // Needed for HuggingFace auth workflows.
     // Use the scheme of the "Redirect URLs" in HuggingFace app.
     manifestPlaceholders["appAuthRedirectScheme"] =
@@ -53,23 +49,11 @@ android {
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
 
-  signingConfigs {
-    create("release") {
-      storeFile = file(System.getProperty("user.home") + "/.android/debug.keystore")
-      storePassword = "android"
-      keyAlias = "androiddebugkey"
-      keyPassword = "android"
-      enableV1Signing = true
-      enableV2Signing = true
-      enableV3Signing = true
-    }
-  }
-
   buildTypes {
     release {
       isMinifyEnabled = false
       proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-      signingConfig = signingConfigs["release"]
+      signingConfig = signingConfigs.getByName("debug")
     }
   }
   compileOptions {

@@ -36,13 +36,12 @@ android {
     applicationId = "com.striketips.gallery"
     minSdk = 31
     targetSdk = 35
-    versionCode = 2
-    versionName = "2.0.2"
+    versionCode = 3
+    versionName = "2.0.3"
 
     // Needed for HuggingFace auth workflows.
     // Use the scheme of the "Redirect URLs" in HuggingFace app.
-    manifestPlaceholders["appAuthRedirectScheme"] =
-        "REPLACE_WITH_YOUR_REDIRECT_SCHEME_IN_HUGGINGFACE_APP"
+    manifestPlaceholders["appAuthRedirectScheme"] = "striketips"
     manifestPlaceholders["applicationName"] = "com.google.ai.edge.gallery.StrikeTipsApplication"
     manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher"
 

@@ -83,7 +83,7 @@ private const val TEXT_INPUT_HISTORY_MAX_SIZE = 50
 private const val MODEL_ALLOWLIST_FILENAME = "model_allowlist.json"
 private const val MODEL_ALLOWLIST_TEST_FILENAME = "model_allowlist_test.json"
 private const val ALLOWLIST_BASE_URL =
-  "https://raw.githubusercontent.com/Gmpho/AI-edge-gallery-/refs/heads/main/model_allowlists"
+  "https://cdn.jsdelivr.net/gh/Gmpho/AI-edge-gallery-/model_allowlists"
 
 private const val TEST_MODEL_ALLOW_LIST = ""
 
@@ -930,6 +930,11 @@ constructor(
         }
 
         if (modelAllowlist == null) {
+          Log.d(TAG, "Trying to load model allowlist from APK assets")
+          modelAllowlist = readModelAllowlistFromAssets()
+        }
+
+        if (modelAllowlist == null) {
           _uiState.update { it.copy(loadingModelAllowlistError = "Failed to load model list") }
           return@launch
         }
@@ -1056,6 +1061,19 @@ constructor(
       Log.d(TAG, "Done: saving model allowlist to disk.")
     } catch (e: Exception) {
       Log.e(TAG, "failed to write model allowlist to disk", e)
+    }
+  }
+
+  private fun readModelAllowlistFromAssets(): ModelAllowlist? {
+    try {
+      Log.d(TAG, "Reading model allowlist from assets")
+      val inputStream = context.assets.open(MODEL_ALLOWLIST_FILENAME)
+      val content = inputStream.bufferedReader().use { it.readText() }
+      val gson = Gson()
+      return gson.fromJson(content, ModelAllowlist::class.java)
+    } catch (e: Exception) {
+      Log.e(TAG, "Failed to read model allowlist from assets", e)
+      return null
     }
   }
 

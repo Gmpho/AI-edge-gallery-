@@ -36,8 +36,8 @@ android {
     applicationId = "com.striketips.gallery"
     minSdk = 31
     targetSdk = 35
-    versionCode = 4
-    versionName = "2.0.4"
+    versionCode = 5
+    versionName = "2.0.5"
 
     // Needed for HuggingFace auth workflows.
     // Use the scheme of the "Redirect URLs" in HuggingFace app.
